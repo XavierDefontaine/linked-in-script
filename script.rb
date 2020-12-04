@@ -24,9 +24,17 @@ driver.find_element(:class, 'btn__primary--large').click
 
 puts "Beep beep boop. Logged into the mainframe!" if wait.until { /Makers/.match(driver.page_source) }
  
-puts "Found yas!" if wait.until {
- 
+connect_class = 
+
+puts "Clicked you once!" if wait.until {
+  driver.find_element(:css, "secondary ember-view full-width").click
 } 
+
+puts "Added ya!" if wait.until {
+  browser.switch_to.alert
+  driver.find_element(:xpath => ("//span[.='Send']")).click
+} 
+
 
 
 
